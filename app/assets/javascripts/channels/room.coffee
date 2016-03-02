@@ -12,3 +12,9 @@ App.room = App.cable.subscriptions.create "RoomChannel",
   speak: (message) ->
   	# Pass message from (this) client side channel into server side (room) channel
     @perform 'speak', message: message
+
+$(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
+  if event.keyCode is 13 # return = send
+    App.room.speak event.target.value
+    event.target.value = ''
+    event.preventDefault()
