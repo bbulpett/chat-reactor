@@ -3,9 +3,9 @@ source 'https://rubygems.org'
 gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3', '~>1.3.11'
 # Use Puma as the app server
-gem 'puma'
+gem 'pg', '~> 0.18'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
