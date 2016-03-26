@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.2.4'
 gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 # Use PostgreSQL as the database for Active Record
