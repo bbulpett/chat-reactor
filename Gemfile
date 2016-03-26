@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', path: "/home/barnabas/projects/rails"
+gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
