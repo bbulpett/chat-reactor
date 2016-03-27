@@ -16,17 +16,17 @@ default: &default
 
 development:
   <<: *default
-  database: actionChat5_development
+  database: chatReactor_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: actionChat5_test
+  database: chatReactor_test
 
 production:
   <<: *default
-  database: actionChat5_production
-  username: actionChat5
-  password: <%= ENV['ACTIONCHAT5_DATABASE_PASSWORD'] %>
+  database: chatReactor_production
+  username: chatReactor
+  password: <%= ENV['CHATREACTOR_DATABASE_PASSWORD'] %>
