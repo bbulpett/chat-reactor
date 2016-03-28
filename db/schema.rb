@@ -11,15 +11,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224040453) do
+ActiveRecord::Schema.define(version: 20160328034232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accesses", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "user_agent_string"
+    t.string   "token"
+    t.string   "ip"
+    t.datetime "expires_at",        default: '2000-01-01 00:00:00'
+    t.datetime "sudo_expires_at",   default: '2000-01-01 00:00:00'
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "accesses", ["token"], name: "index_accesses_on_token", using: :btree
+  add_index "accesses", ["user_id"], name: "index_accesses_on_user_id", using: :btree
+
+  create_table "credentials", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "type"
+    t.string   "email"
+    t.string   "digest"
+    t.datetime "confirmed_at"
+    t.string   "verifying_token_digest"
+    t.datetime "verifying_token_digested_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "credentials", ["user_id"], name: "index_credentials_on_user_id", using: :btree
 
   create_table "messages", force: :cascade do |t|
     t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.string   "role"
+    t.string   "locale"
+    t.string   "time_zone"
+    t.string   "username"
+    t.integer  "credentials_count", default: 0
+    t.integer  "accesses_count",    default: 0
   end
 
 end
