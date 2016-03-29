@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hello</title>
+  <title>ChatReactor</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -19,10 +19,9 @@
     <div class="header">
       <%= render "/hello/shared/nav_pills" %>
 
-      <h3 class="text-muted"><a href="/">Project name</a></h3>
-      <p class="lead">Hello, <%= current_user && current_user.name || "Guest" %>!</p>
+      <h3 class="text-muted"><a href="/">ChatReactor</a></h3>
+      <p class="lead">Welcome, <%= current_user && current_user.name || "Guest" %>!</p>
 
-      <%= render "/hello/shared/session_expiration" %>
     </div>
 
     <%= render "/hello/shared/flash" %>
